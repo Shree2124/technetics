@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Users, LayoutGrid, GraduationCap, BookOpen, Loader2, Search } from "lucide-react";
+import { Users, LayoutGrid, GraduationCap, BookOpen, Loader2, Search, Filter } from "lucide-react";
 import CharacterCard from "../components/CharacterCard";
 
 const filters = [
@@ -99,13 +99,13 @@ export default function Characters() {
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-3 mb-10">
-        {filters.map(({ key, label, icon: FilterIcon }) => (
+        {filters.map(({ key, label }) => (
           <button
             key={key}
             onClick={() => setFilter(key)}
             className={`filter-btn flex items-center gap-2 ${filter === key ? "active" : ""}`}
           >
-            <FilterIcon size={14} strokeWidth={1.5} />
+            <Filter size={14} strokeWidth={1.5} />
             {label}
           </button>
         ))}
