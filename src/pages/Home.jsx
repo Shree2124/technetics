@@ -132,7 +132,6 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature) => {
-            console.log(feature)
             const Icon = feature.icon;
             return (
               <Link to={feature.path} className="group block" key={feature?.id}>
