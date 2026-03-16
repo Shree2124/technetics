@@ -96,20 +96,23 @@ export default function Home() {
 
         {/* Stats row */}
         <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-          {stats.map(({ value, label, icon: IconComponent }) => (
-            <div key={label} className="flex flex-col items-center gap-1">
-              <div className="flex items-center gap-2">
-                <IconComponent size={14} className={"text-amber-500/60"} strokeWidth={1.5} />
-                <span
-                  className="text-2xl font-bold gold-text"
-                  style={{ fontFamily: "'Cinzel', serif" }}
-                >
-                  {value}
-                </span>
+          {stats.map(({ value, label, icon }) => {
+            const IconComponent = icon;
+            return (
+              <div key={label} className="flex flex-col items-center gap-1">
+                <div className="flex items-center gap-2">
+                  <IconComponent size={14} className={"text-amber-500/60"} strokeWidth={1.5} />
+                  <span
+                    className="text-2xl font-bold gold-text"
+                    style={{ fontFamily: "'Cinzel', serif" }}
+                  >
+                    {value}
+                  </span>
+                </div>
+                <span className="text-xs text-amber-50/40 tracking-widest uppercase">{label}</span>
               </div>
-              <span className="text-xs text-amber-50/40 tracking-widest uppercase">{label}</span>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
