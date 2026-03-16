@@ -1,4 +1,4 @@
-import { UseState as useState } from "react";
+import { useState } from "react";
 import { Shield, Sparkles, Wand2, Star, RefreshCw } from "lucide-react";
 
 const questions = [
@@ -102,7 +102,7 @@ export default function SortingHat() {
       <div className="max-w-3xl w-full bg-[#020b0d]/80 backdrop-blur-xl border border-amber-900/20 rounded-3xl p-8 md:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
         {/* Background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1 bg-linear-to-r from-transparent via-amber-500/50 to-transparent" />
-        
+
         {!result && !isSorting ? (
           <div className="animate-fadeIn">
             <div className="flex flex-col items-center mb-10">
@@ -118,7 +118,7 @@ export default function SortingHat() {
                 Question {currentStep + 1} of {questions.length}
               </div>
               <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden mb-8">
-                <div 
+                <div
                   className="h-full bg-amber-500 transition-all duration-500"
                   style={{ width: `${((currentStep + 1) / questions.length) * 100}%` }}
                 />
@@ -162,7 +162,7 @@ export default function SortingHat() {
               </h1>
             </div>
 
-            <div 
+            <div
               className={`p-8 rounded-3xl bg-linear-to-br ${houseDetails[result].color} border border-white/10 shadow-2xl mb-10 relative overflow-hidden group`}
             >
               <div className="absolute -right-10 -bottom-10 opacity-10 group-hover:rotate-12 transition-transform duration-700">

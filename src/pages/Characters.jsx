@@ -20,7 +20,6 @@ export default function Characters() {
         return res.json()
       })
       .then((data) => {
-        console.log(data)
         setCharacters(data.slice(0, 24));
         setLoading(false);
       })

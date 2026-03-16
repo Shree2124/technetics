@@ -46,7 +46,7 @@ export default function Potions() {
 
         {/* Potions Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPotions.map((potion, index) => (
+          {filteredPotions?.map((potion, index) => (
             <div
               key={1}
               className="glass-card-hover p-6 group animate-fadeIn"
@@ -74,7 +74,7 @@ export default function Potions() {
                   Ingredients
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {potion?.Ingredients.map((ingredient) => (
+                  {potion?.ingredients?.map((ingredient) => (
                     <span
                       key={ingredient}
                       className="px-2 py-1 rounded-md bg-white/5 border border-white/5 text-[11px] text-amber-50/70"
