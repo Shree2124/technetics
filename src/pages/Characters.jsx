@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Users, LayoutGrid, GraduationCap, BookOpen, Loader2, Search, Icon } from "lucide-react";
+import { Users, LayoutGrid, GraduationCap, BookOpen, Loader2, Search } from "lucide-react";
 import CharacterCard from "../components/CharacterCard";
 
 const filters = [
@@ -16,9 +16,7 @@ export default function Characters() {
 
   useEffect(() => {
     fetch("https://hp-api.onrender.com/api/characters")
-      .then((res) => {
-        return res.json()
-      })
+      .then((res) => res.json())
       .then((data) => {
         setCharacters(data.slice(0, 24));
         setLoading(false);
@@ -27,7 +25,6 @@ export default function Characters() {
         console.error("Error fetching characters:", err);
         setLoading(false);
       });
-    console.log(characters)
   }, []);
 
   const filteredCharacters = characters?.filter((char) => {
@@ -102,13 +99,13 @@ export default function Characters() {
 
       {/* Filter Buttons */}
       <div className="flex flex-wrap gap-3 mb-10">
-        {filters?.map(({ key, label }) => (
+        {filters.map(({ key, label, icon: FilterIcon }) => (
           <button
             key={key}
             onClick={() => setFilter(key)}
             className={`filter-btn flex items-center gap-2 ${filter === key ? "active" : ""}`}
           >
-            <Icon size={14} strokeWidth={1.5} />
+            <FilterIcon size={14} strokeWidth={1.5} />
             {label}
           </button>
         ))}
@@ -121,9 +118,16 @@ export default function Characters() {
 
       {/* Characters Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        {filteredCharacters?.map((character, index) => (
-          <CharacterCard key={index} character={character} />
-        ))}
+
+        {filteredCharacters && filteredCharacters?.map((character, index) => {
+          console.log(character)
+          return (
+            character && (
+              <>
+                <CharacterCard key={index} character={character} />
+              </>)
+          )
+        })}
       </div>
 
       {filteredCharacters?.length === 0 && (
