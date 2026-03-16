@@ -38,7 +38,7 @@ export default function Houses() {
       </div>
 
       {/* House Cards Grid */}
-      <div className="grid grid-cols-0 md:grid-cols-0 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {houses.map((house) => {
           const ElementIcon = house.elementIcon;
           const isSelected = selectedHouse === house.name;
