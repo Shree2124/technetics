@@ -158,13 +158,13 @@ export default function Houses() {
                   { icon: Ghost, label: "Ghost", value: selected.ghost },
                   { icon: Home, label: "Common Room", value: selected.commonRoom },
                   { icon: selected.elementIcon, label: "Element", value: selected.element },
-                ].map(({ icon: Icon, label, value }) => (
+                ].map(({ icon, label, value }) => (
                   <div key={label} className="flex items-center gap-4">
                     <div
                       className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
                       style={{ background: selected.accentLight, border: `1px solid ${selected.border}` }}
                     >
-                      <Icon size={14} style={{ color: selected.accent }} strokeWidth={1.5} />
+                      <Icon size={14} style={{ color: selected.accent }} strokeWidth={1.5} icon={icon} />
                     </div>
                     <div>
                       <p className="text-amber-50/40 text-xs uppercase tracking-wider mb-0.5">

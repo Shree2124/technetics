@@ -118,16 +118,9 @@ export default function Characters() {
 
       {/* Characters Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-
-        {filteredCharacters && filteredCharacters?.map((character, index) => {
-          console.log(character)
-          return (
-            character && (
-              <>
-                <CharacterCard key={index} character={character} />
-              </>)
-          )
-        })}
+        {filteredCharacters.map((character) => (
+          <CharacterCard key={character.name} character={character} />
+        ))}
       </div>
 
       {filteredCharacters?.length === 0 && (
